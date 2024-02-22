@@ -54,19 +54,19 @@ EOF
 
 ### Linux
 
-On Linux things can be trickier because
+On Linux, things can be trickier because
 most distros don't have `jq` configured,
-so your best guess would be installint `jq` from source first.
+so your best guess would be installing `jq` from source first.
 
 If you already have `jq` installed to a known prefix,
-try using it explicitely:
+try using it explicitly:
 
 ```sh
 JQ_PREFIX=/usr/local make
 ```
 
 If this doesn't work,
-you can (and probably should) build it from source
+you can (and probably should) build it from source.
 
 #### Build `jq` from source
 
@@ -87,5 +87,4 @@ make
 
 # Others
 
-There is [another](https://mgdm.net/weblog/using-jq-in-sqlite/) similar extension but
-But it's written in Go and relies on a non-vanilla implementation of JQ.
+There is [another](https://mgdm.net/weblog/using-jq-in-sqlite/) similar extension, but it's written in Go and relies on a non-vanilla implementation of JQ.
