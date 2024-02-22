@@ -34,8 +34,3 @@ dev: clean all test
 
 .PHONY: dev
 .default: all
-
-
-jqapi: jqapi.c jqapi.h
-	$(CC) $(SQLITE3_LIBS) $(LIBJQ_LIBS) jqapi.c -o $@
-
