@@ -1,0 +1,39 @@
+name: Test
+
+on: [ push, pull_request ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Check Out'
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y build-essential \
+          pkg-config \
+          autoconf \
+          libtool \
+          wget \
+          sqlite3 libsqlite3-dev
+
+      - name: Build jq from source
+        run: |
+          wget "https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-1.7.1.tar.gz" &&\
+          tar xzf jq-1.7.1.tar.gz && \
+          cd jq-1.7.1 && \
+          ./configure --with-oniguruma=builtin --prefix=/usr/local && \
+          sudo make -j install
+
+      - name: Build extension
+        run: |
+          make all
+
+      - name: Run tests
+        run: |
+          make test

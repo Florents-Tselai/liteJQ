@@ -1,0 +1,4 @@
+.idea
+*.so
+*.out.sql
+litejq
