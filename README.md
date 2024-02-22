@@ -22,15 +22,15 @@ sqlite3 :memory: <<EOF
 .load ./litejq
 .echo on
 
-select jq('{"a":2,"c":[4,5,{"f":7}]}', '.'); --> {"a":2,"c":[4,5,{"f":7}]}
-select jq('{"a":2,"c":[4,5,{"f":7}]}', '.c') --> '[4,5,{"f":7}]'
-select jq('{"a":2,"c":[4,5,{"f":7}]}', '.c[2]') --> '{"f":7}
-select jq('{"a":2,"c":[4,5,{"f":7}]}', '.c[2].f') --> 7
-select jq('{"a":2,"c":[4,5],"f":7}','.c[-1]') --> 5
-select jq('{"a":2,"c":[4,5,{"f":7}]}', '.x') --> NULL
-select jq('{"a":"xyz"}', '.a | length + 2') --> 5
-select jq('{"a":null}', '.a') --> NULL
-select jq('{"a":true}', '.a') --> 1
+select jq('{"a":2,"c":[4,5,{"f":7}]}', '.'); --> {"a":2,"c":[4,5,{"f":7}]} ;
+select jq('{"a":2,"c":[4,5,{"f":7}]}', '.c'); --> '[4,5,{"f":7}]' ;
+select jq('{"a":2,"c":[4,5,{"f":7}]}', '.c[2]'); --> '{"f":7} ;
+select jq('{"a":2,"c":[4,5,{"f":7}]}', '.c[2].f'); --> 7 ;
+select jq('{"a":2,"c":[4,5],"f":7}','.c[-1]'); --> 5 ;
+select jq('{"a":2,"c":[4,5,{"f":7}]}', '.x'); --> NULL ;
+select jq('{"a":"xyz"}', '.a | length + 2'); --> 5 ;
+select jq('{"a":null}', '.a'); --> NULL ;
+select jq('{"a":true}', '.a'); --> 1 ;
 EOF
 ```
 
