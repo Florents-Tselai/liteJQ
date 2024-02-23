@@ -61,7 +61,7 @@ select jq(d, '.title')
 from movies;
 ```
 
-**To find movies released in a specific year, for example, 1980**
+**To find movies released after a specific year, for example, 1980**
 
 ```sql
 select jq(d, '{title: .title, year: .year}')
