@@ -60,43 +60,22 @@ Let's see some example queries.
 select jq(d, '.title')
 from movies;
 ```
-| jq(d, '.title') |
-| --- |
-| Combat Shock |
-| Night Court |
-| Jimmie's Millions |
-| Tai-Pan |
-| Werewolves Within |
-**To find movies released in a specific year, for example, 1945**
 
+**To find movies released in a specific year, for example, 1980**
 
 ```sql
 select jq(d, '{title: .title, year: .year}')
 from movies
-where jq(d, 'select(.year) > 1990');
+where jq(d, '.year > 1980');
 ```
-| jq(d, '{title: .title, year: .year}') |
-| --- |
-| {"title":"Combat Shock","year":1986} |
-| {"title":"Night Court","year":1932} |
-| {"title":"Jimmie's Millions","year":1925} |
-| {"title":"Tai-Pan","year":1986} |
-| {"title":"Werewolves Within","year":2021} |
-**Extract Movies with Specific Keywords in Extract**
 
+**Extract Movies with Specific Keywords in Extract**
 
 ```sql
 select jq(d, '.extract')
 from movies
 where jq(d, '.extract | contains("silent")');
 ```
-| jq(d, '.extract') |
-| --- |
-| Jimmie's Millions is a 1925 American silent action film directed by James P. Hogan and starring Richard Talmadge, Betty Francisco, and Charles Clary. |
-| Women and Gold is a 1925 American silent drama film directed by James P. Hogan and starring Frank Mayo, Sylvia Breamer and William B. Davidson. It was produced by the independent Gotham Pictures. |
-| The Rough Neck is a 1919 American silent drama film directed Oscar Apfel and starring Montagu Love, Robert Broderick and Barbara Castleton. |
-| Quicksand is a lost 1918 American silent drama film directed by Victor Schertzinger and written by John Lynch and R. Cecil Smith. The film stars Henry A. Barrows, Edward Coxen, Dorothy Dalton, Frankie Lee, and Philo McCullough. The film was released on December 22, 1918, by Paramount Pictures. |
-| Sweet and Low is a 1914 American silent short drama film starring William Garwood, Harry von Meter, and Vivian Rich, directed by Sydney Ayres, and released by Mutual Film Corporation on October 28, 1914. The film is based upon the 1850 poem Lullaby/Sweet and Low by Alfred, Lord Tennyson. |
 
 ## Installation
 
