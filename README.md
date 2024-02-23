@@ -68,6 +68,12 @@ select jq(d, '{title: .title, year: .year}')
 from movies
 where jq(d, '.year > 1980');
 ```
+The above query is equivalent to this one
+```sql
+select jq(d, '{title: .title, year: .year}')
+from movies
+where jq(d, '.year') > 1980;
+```
 
 **Extract Movies with Specific Keywords in Extract**
 
@@ -75,6 +81,22 @@ where jq(d, '.year > 1980');
 select jq(d, '.extract')
 from movies
 where jq(d, '.extract | contains("silent")');
+```
+
+**Filter movies by a specific genre (e.g., Drama)**
+
+```sql
+select jq(d, '{title: .title, year: .year, genres: .genres}')
+from movies
+where jq(d, '.genres[] == "Drama"');
+```
+
+**Filter movies where "Joan Lorring" and "John Dall" played together**
+
+```sql
+select jq(d, '{title: .title, year: .year, cast: .cast}')
+from movies
+where jq(d, '.cast | contains(["Joan Lorring", "John Dall"])');
 ```
 
 ## Installation
