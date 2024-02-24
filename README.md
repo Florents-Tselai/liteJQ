@@ -99,6 +99,14 @@ from movies
 where jq(d, '.cast | contains(["Joan Lorring", "John Dall"])');
 ```
 
+**Group by movies by release year**
+
+```sql
+select jq(d, '.year'), count(*)
+from movies
+group by jq(d, '.year')
+```
+
 ## Installation
 
 ### MacOS
