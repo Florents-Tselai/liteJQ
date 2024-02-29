@@ -20,15 +20,7 @@ jobs:
           autoconf \
           libtool \
           wget \
-          sqlite3 libsqlite3-dev
-
-      - name: Build jq from source
-        run: |
-          wget "https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-1.7.1.tar.gz" &&\
-          tar xzf jq-1.7.1.tar.gz && \
-          cd jq-1.7.1 && \
-          ./configure --with-oniguruma=builtin --prefix=/usr/local && \
-          sudo make -j install
+          sqlite3 libsqlite3-dev libjq-dev
 
       - name: Build extension
         run: |

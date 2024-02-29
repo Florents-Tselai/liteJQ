@@ -4,7 +4,7 @@ SRC=litejq.c
 OUT=litejq
 PKG_CONFIG ?= pkg-config
 
-ifeq (no,$(shell $(PKG_CONFIG) libjq || echo no))
+ifeq (no,$(shell $(PKG_CONFIG) jq || echo no))
 $(warning "libjq not registed with pkg-config, build might fail. If it does, try setting JQ_PREFIX manually and run with `JQ_PREFIX=/path/to/dir make all`")
 LIBJQ_LIBS=-I$(JQ_PREFIX)/include -L$(JQ_PREFIX)/lib -ljq
 else
