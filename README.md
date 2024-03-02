@@ -8,6 +8,10 @@
 **liteJQ** is an SQLite extension, written in C, that brings `jq` support to SQLite.
 It uses vanilla `libjq`.
 
+## Motivation
+
+SQLite has been supporting JSON operators for years. Complex queries, however, involving JSON can be more cumbersome to write and understand, especially when compared to more complex systems like PostgreSQL. **liteJQ** attempts to alleviate that by bringing the expressive power of jq into SQLite.
+
 ## Installation
 
 ```sh
