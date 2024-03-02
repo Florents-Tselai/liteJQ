@@ -6,7 +6,24 @@
 
 
 **liteJQ** is an SQLite extension, written in C, that brings `jq` support to SQLite.
-It uses vanilla `jqlib`.
+It uses vanilla `libjq`.
+
+## Installation
+
+```sh
+make
+```
+
+This produces a `litejq` binary object, which should be loaded in SQLite at runtime.
+
+Verify the installation.
+
+```sh
+sqlite3 :memory: <<EOF
+.load ./litejq
+select jq('{"key": "value"}', '.key')
+EOF
+```
 
 ## Usage
 
@@ -16,7 +33,7 @@ SELECT jq(json, jqprog)
 
 ### Examples
 
-We'll use the movies dataset as a running example.
+We'll use the movie dataset as a running example.
 ```bash
 sqlite3 movies.db < ./data/movies.sql
 ```
@@ -107,7 +124,7 @@ from movies
 group by jq(d, '.year')
 ```
 
-## Installation
+## Notes Installation
 
 ### MacOS
 
