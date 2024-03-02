@@ -21,7 +21,7 @@ Verify the installation.
 ```sh
 sqlite3 :memory: <<EOF
 .load ./litejq
-select jq('{"key": "value"}', '.key')
+select jq('{"key": "litejq is loaded"}', '.key')
 EOF
 ```
 
