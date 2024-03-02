@@ -124,7 +124,9 @@ from movies
 group by jq(d, '.year')
 ```
 
-## Notes Installation
+## Notes On Installation
+
+For this to work, you'll need development files for both SQLite and jq.
 
 ### MacOS
 
@@ -132,6 +134,9 @@ group by jq(d, '.year')
 brew install jq sqlite3
 make all
 ```
+
+I've found that `brew` installs header files auomatically for you,
+so there's nothing else you have to do
 
 Verify installation
 
@@ -144,8 +149,12 @@ EOF
 
 ### Linux
 
-On Linux, things can be trickier because
-most distros don't have `jq` configured,
+```sh
+sudo apt install sqlite3 libsqlite3-dev jq libjq-dev
+```
+
+On Linux, sometimes things can be trickier because
+many distros don't have `jq` configured with `pkg-config`
 so your best guess would be installing `jq` from source first.
 
 If you already have `jq` installed to a known prefix,
@@ -173,6 +182,13 @@ Then try again
 
 ```sh
 make
+```
+
+```sh
+sqlite3 :memory: <<EOF
+.load ./litejq
+select jq('{"key": "litejq is loaded"}', '.key')
+EOF
 ```
 
 # Others
