@@ -200,4 +200,5 @@ EOF
 
 # Others
 
-There is [another](https://mgdm.net/weblog/using-jq-in-sqlite/) similar extension, but it's written in Go and relies on a non-vanilla implementation of JQ.
+* I've also created [pgJQ](https://github.com/Florents-Tselai/pgJQ) which brings jq to Postgres.
+* There is another [jq-sqlite](https://mgdm.net/weblog/using-jq-in-sqlite/) similar, but it's written in Go and relies on a non-vanilla implementation of JQ.
