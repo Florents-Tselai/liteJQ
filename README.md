@@ -1,8 +1,8 @@
 # liteJQ: jq support in SQLite</strong>
 
 <a href="https://github.com/Florents-Tselai/litejq/actions/workflows/test.yml?branch=mainline"><img src="https://github.com/Florents-Tselai/litejq/actions/workflows/test.yml/badge.svg"></a>
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Florents-Tselai/liteJQ">
-<img alt="Release" src="https://img.shields.io/github/v/release/Florents-Tselai/liteJQ">
+<a href="https://github.com/Florents-Tselai/liteJQ/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Florents-Tselai/liteJQ"></a>
+<a href="https://github.com/Florents-Tselai/litejq/releases"><img alt="Release" src="https://img.shields.io/github/v/release/Florents-Tselai/liteJQ"></a>
 <a href="https://opensource.org/licenses/MIT License"><img src="https://img.shields.io/badge/MIT License-blue.svg"></a>
 
 
