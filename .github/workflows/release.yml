@@ -1,0 +1,50 @@
+name: publish
+
+on:
+  push:
+    tags:
+      - "*"
+  workflow_dispatch:
+
+env:
+  SQLITE_RELEASE_YEAR: "2021"
+  SQLITE_VERSION: "3360000"
+  SQLITE_BRANCH: "3.36"
+
+jobs:
+  publish:
+    name: Publish for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+          - os: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y build-essential \
+          pkg-config \
+          autoconf \
+          libtool \
+          wget \
+          sqlite3 libsqlite3-dev libjq-dev
+
+      - name: make all
+        shell: bash
+        run: |
+          make all
+
+      - name: make dist
+        run: |
+          make dist
+
+      - name: Upload binaries to release
+        uses: actions/upload-artifact@v4
+        with:
+          path: |
+            dist/*.zip

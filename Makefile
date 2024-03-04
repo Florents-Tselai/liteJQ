@@ -1,5 +1,16 @@
 CC=gcc
+UNAME_S=$(shell uname -s)
+UNAME_M=$(shell uname -m)
+LITEJQ_VERSION:=$(shell git tag --points-at HEAD)
+
+ifeq (Darwin,$(UNAME_S))
+CFLAGS:=-Wall -Wsign-compare -fPIC -dynamiclib -DLITEJQ_VERSION=$(LITEJQ_VERSION)
+else ifeq (Linux,$(UNAME_S))
+CFLAGS=-z now -z relro -Wall -Wsign-compare -Wno-unknown-pragmas -fPIC -shared -DLITEJQ_VERSION=$(LITEJQ_VERSION)
+else
 CFLAGS=-shared -fPIC
+endif
+
 SRC=litejq.c
 OUT=litejq
 PKG_CONFIG ?= pkg-config
@@ -26,11 +37,20 @@ run-test-%:
 
 test: run-test-basic run-test-complex
 
-clean:
-	-rm -f $(OUT)
-	-rm tests/output/*.sql
-
 dev: clean all test
 
 .PHONY: dev
-.default: all
+.default: all dist
+
+DIST_ZIP=./dist/litejq-$(LITEJQ_VERSION)-$(UNAME_S)-$(UNAME_M).zip
+
+$(DIST_ZIP): $(OUT)
+	mkdir -p dist
+	zip -p $@ $^
+
+dist: $(DIST_ZIP)
+
+clean:
+	-rm -f $(OUT)
+	-rm tests/output/*.sql
+	-rm -rf dist/
