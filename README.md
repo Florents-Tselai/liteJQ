@@ -9,6 +9,8 @@
 **liteJQ** is an SQLite extension, written in C, that brings `jq` support to SQLite.
 It uses vanilla `libjq`.
 
+*Note*: If you like the idea, but you're more into Postgres, check out: [pgJQ: jq extension for Postgres](https://github.com/Florents-Tselai/pgJQ)
+
 ## Motivation
 
 SQLite has been supporting JSON for years.
