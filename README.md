@@ -3,6 +3,8 @@
 <a href="https://github.com/Florents-Tselai/litejq/actions/workflows/test.yml?branch=mainline"><img src="https://github.com/Florents-Tselai/litejq/actions/workflows/test.yml/badge.svg"></a>
 <a href="https://github.com/Florents-Tselai/liteJQ/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Florents-Tselai/liteJQ"></a>
 <a href="https://github.com/Florents-Tselai/litejq/releases"><img alt="Release" src="https://img.shields.io/github/v/release/Florents-Tselai/liteJQ"></a>
+<a href="https://www.linkedin.com/in/florentstselai/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin&logoColor=white"></a>
+<a href="https://github.com/sponsors/Florents-Tselai/"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&link=https://github.com/sponsors/Florents-Tselai/"></a>
 <a href="https://opensource.org/licenses/MIT License"><img src="https://img.shields.io/badge/MIT License-blue.svg"></a>
 
 
